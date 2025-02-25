@@ -19,6 +19,5 @@ $response = $smsAPI->sendMessage(
     true, // Send aussi en SMS
     $scheduleTimestamp
 );
-print_r($response);
 
 print_r($response);
