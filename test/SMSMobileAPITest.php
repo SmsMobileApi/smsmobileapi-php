@@ -10,15 +10,15 @@ $smsAPI = new SMSMobileAPI($apiKey);
 $recipients = '+123456789';
 $message = 'Hello from SMS Mobile API PHP SDK!';
 
-// Envoyer un message programmé via WhatsApp et SMS
-$scheduleTimestamp = strtotime('+1 hour'); // Planifié dans 1h (GMT 0)
-
+// Send a scheduled message via WhatsApp and SMS.
+//$scheduleTimestamp = strtotime('+1 hour'); //Scheduled in 1 hour (GMT 0).
 $response = $smsAPI->sendMessage(
     $recipients, 
     $message, 
-    sendWA: true,  // Envoyer via WhatsApp
-    sendSMS: true, // Envoyer aussi en SMS
-    scheduleTimestamp: $scheduleTimestamp
+    false,  // Send via WhatsApp
+    true, // Send aussi en SMS
+    $scheduleTimestamp
 );
+print_r($response);
 
 print_r($response);
