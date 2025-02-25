@@ -9,10 +9,14 @@ class SMSMobileAPI
 {
     private $apiKey;
     private $client;
-    private $apiUrl = 'https://api.smsmobileapi.com/sendsms';
+    private $apiUrl = 'https://api.smsmobileapi.com/sendsms/';
 
-    public function __construct(string $apiKey)
+    public function __construct($apiKey)
     {
+        if (empty($apiKey)) {
+            throw new \Exception("API key is required.");
+        }
+
         $this->apiKey = $apiKey;
         $this->client = new Client([
             'timeout'  => 10.0, // Timeout de 10 secondes
@@ -20,14 +24,19 @@ class SMSMobileAPI
     }
 
     public function sendMessage(
-        string $recipients,
-        string $message,
-        bool $sendWA = false, // Envoyer via WhatsApp ?
-        bool $sendSMS = true,  // Envoyer en SMS (false = désactivé)
-        ?int $scheduleTimestamp = null // Planification d'envoi (timestamp UNIX GMT 0)
+        $recipients,
+        $message,
+        $sendWA = false,
+        $sendSMS = true,
+        $scheduleTimestamp = null
     ) {
         try {
-            // Préparation des données POST
+            // Vérification des paramètres
+            if (empty($recipients) || empty($message)) {
+                throw new \Exception("Recipients and message are required.");
+            }
+
+            // Préparation des données
             $postData = [
                 'apikey' => $this->apiKey,
                 'recipients' => $recipients,
@@ -36,22 +45,50 @@ class SMSMobileAPI
                 'sendsms' => $sendSMS ? 1 : 0
             ];
 
-            // Ajouter la planification si fournie
             if ($scheduleTimestamp !== null) {
                 $postData['schedule_timestamp'] = $scheduleTimestamp;
             }
 
-            // Envoi de la requête HTTP POST
-            $response = $this->client->post($this->apiUrl, [
-                'form_params' => $postData
-            ]);
+            // Debugging avant l'envoi
+            // var_dump($postData);
 
+            // Méthode 1: Envoyer en POST avec form_params
+           $response = $this->client->post($this->apiUrl, [
+			'headers' => [
+				'Content-Type' => 'application/x-www-form-urlencoded'
+			],
+			'body' => http_build_query([
+				'from' => 'composer',
+				'apikey' => $this->apiKey,
+				'recipients' => $recipients,
+				'message' => $message,
+				'sendwa' => $sendWA ? 1 : 0,
+				'sendsms' => $sendSMS ? 1 : 0,
+				'schedule_timestamp' => $scheduleTimestamp ?? null
+			])
+			]);
+
+
+            // Alternative: Envoyer en POST avec body encodé (si nécessaire)
+            /*
+            $response = $this->client->post($this->apiUrl, [
+                'headers' => ['Content-Type' => 'application/x-www-form-urlencoded'],
+                'body' => http_build_query($postData)
+            ]);
+            */
+
+            // Décoder la réponse JSON
             return json_decode($response->getBody()->getContents(), true);
 
         } catch (RequestException $e) {
             return [
                 'success' => false,
-                'error' => $e->getMessage()
+                'error' => 'HTTP Request Error: ' . $e->getMessage()
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'error' => 'General Error: ' . $e->getMessage()
             ];
         }
     }
