@@ -19,7 +19,9 @@ if (!method_exists($smsAPI, 'sendMessage')) {
 // Définition des paramètres du message
 $recipients = '+123456789';
 $message = 'Hello from SMS Mobile API PHP SDK!';
-$scheduleTimestamp = ""; // Planifié dans 1h (GMT 0)
+// Send a scheduled message via WhatsApp and SMS.
+//$scheduleTimestamp = strtotime('+1 hour'); //Scheduled in 1 hour (GMT 0).
+$scheduleTimestamp = "";
 
 // Envoi du message
 $response = $smsAPI->sendMessage(
