@@ -1,6 +1,8 @@
 # SMSMobileAPI PHP SDK
 
-SMS Mobile API is a PHP SDK that allows developers to send SMS and WhatsApp messages via the SMS Mobile API.
+SMS Mobile API is a PHP SDK that allows developers to send SMS and WhatsApp messages via the SMS Mobile API.  
+Unlike traditional SMS providers, **messages are sent directly from your own mobile phone, using your own number**.  
+This means that your contacts can **reply to you directly, just like a regular message**, without any third-party SMS provider in between.
 
 ## Prerequisite: Install the SMS Mobile API App
 
@@ -10,8 +12,6 @@ Before using this SDK, you must first install the SMS Mobile API mobile app on y
 - Download SMS Mobile API for iOS: https://apps.apple.com/us/app/sms-mobile-api/id6667092442
 
 Once the app is installed and configured, you can obtain your API key from within the app to use with this PHP SDK.
-
-- How to use the SDK and examples: https://smsmobileapi.com/php
 
 ## Installation
 
