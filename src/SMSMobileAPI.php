@@ -66,7 +66,7 @@ class SMSMobileAPI
 				'sendsms' => $sendSMS ? 1 : 0,
 				'schedule_timestamp' => $scheduleTimestamp ?? null
 			])
-			]);
+]);
 
 
             // Alternative: Envoyer en POST avec body encodé (si nécessaire)
