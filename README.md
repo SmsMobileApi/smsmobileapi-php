@@ -29,18 +29,30 @@ composer require smsmobileapi/smsmobileapi-php
 
 ## Usage Example
 
+```php
 require 'vendor/autoload.php';
+
 use SMSMobileAPI\SMSMobileAPI;
+
 $apiKey = 'YOUR_API_KEY'; 
 $smsAPI = new SMSMobileAPI($apiKey);
-// Send an SMS $response = $smsAPI->sendMessage( '+123456789', // Recipient 'Hello from SMS Mobile API PHP SDK!', // Message sendWA: true, // Send via WhatsApp sendSMS: true // Also send as SMS );
+
+// Send an SMS
+$response = $smsAPI->sendMessage(
+    '+123456789',  // Recipient
+    'Hello from SMS Mobile API PHP SDK!',  // Message
+    sendWA: true,  // Send via WhatsApp
+    sendSMS: true  // Also send as SMS
+);
+
 print_r($response);
+```
 
 
 ## Documentation
 
 For full API documentation and more examples, visit:
-https://smsmobileapi.com/docs
+https://smsmobileapi.com/doc
 
 ## License
 
