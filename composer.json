@@ -1,6 +1,6 @@
 {
     "name": "smsmobileapi/smsmobileapi-php",
-    "description": "A PHP SDK for SMS Mobile API",
+   "description": "A PHP SDK that allows sending SMS and WhatsApp messages directly from your own phone number, enabling recipients to reply to you instantly without any third-party provider.",
     "type": "library",
     "license": "MIT",
     "authors": [
