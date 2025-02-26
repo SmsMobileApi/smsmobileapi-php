@@ -4,6 +4,25 @@ SMS Mobile API is a PHP SDK that allows developers to send SMS and WhatsApp mess
 Unlike traditional SMS providers, **messages are sent directly from your own mobile phone, using your own number**.  
 This means that your contacts can **reply to you directly, just like a regular message**, without any third-party SMS provider in between.
 
+# 🚀 SMSMobileAPI – Send SMS & WhatsApp via Your Own Mobile, for Free!  
+
+### Turn Your Smartphone into a Powerful SMS Gateway – No Third-Party Costs, No Hidden Fees!  
+
+Tired of expensive SMS gateways? **SMSMobileAPI** allows you to send **SMS & WhatsApp messages** directly **from your own mobile phone**, using your existing mobile plan. If you have an **unlimited SMS plan**, you can send as many messages as you want at **zero additional cost!**  
+
+## 🔥 Why Choose SMSMobileAPI?  
+✅ **No per-message fees** – Messages are sent via your own mobile plan  
+✅ **No external providers** – No middlemen, just direct SMS from your phone  
+✅ **Full API integration** – Works with WooCommerce, Shopify, Zapier, Python, and more  
+✅ **Receive SMS replies** – Messages are fully bidirectional  
+✅ **Easy to set up** – Just install the mobile app and start sending  
+
+## 🚀 How It Works  
+1️⃣ **Download & install** the SMSMobileAPI app on your phone  
+2️⃣ **Generate your API key** in the app  
+3️⃣ **Integrate our API** into your system  
+4️⃣ **Start sending SMS & WhatsApp messages** instantly!  
+
 ## Prerequisite: Install the SMS Mobile API App
 
 Before using this SDK, you must first install the SMS Mobile API mobile app on your Android or iOS device. This app is required to connect your phone to the API for sending and receiving SMS messages.
